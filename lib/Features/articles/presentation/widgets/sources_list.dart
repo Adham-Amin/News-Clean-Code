@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:news_route/Features/categories/presentation/widgets/source_item.dart';
+import 'package:news_route/Features/articles/presentation/widgets/source_item.dart';
 
 class SourcesList extends StatefulWidget {
   const SourcesList({super.key,});

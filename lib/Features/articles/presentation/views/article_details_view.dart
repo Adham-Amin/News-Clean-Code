@@ -3,10 +3,10 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:news_route/Core/utils/app_colors.dart';
 import 'package:news_route/Core/utils/app_styles.dart';
 import 'package:news_route/Core/widgets/custom_scaffold.dart';
-import 'package:news_route/Features/categories/presentation/widgets/category_details_view_body.dart';
+import 'package:news_route/Features/articles/presentation/widgets/articles_details_view_body.dart';
 
-class CategoryDetailsView extends StatelessWidget {
-  const CategoryDetailsView({super.key});
+class ArticleDetailsView extends StatelessWidget {
+  const ArticleDetailsView({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -24,7 +24,7 @@ class CategoryDetailsView extends StatelessWidget {
           ),
         ),
       ),
-      body: CategoryDetailsViewBody(),
+      body: ArticleDetailsViewBody(),
     );
   }
 }

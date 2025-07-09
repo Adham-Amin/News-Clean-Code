@@ -1,6 +1,6 @@
 import 'package:go_router/go_router.dart';
-import 'package:news_route/Features/categories/presentation/views/category_details_view.dart';
-import 'package:news_route/Features/categories/presentation/views/category_view.dart';
+import 'package:news_route/Features/articles/presentation/views/article_details_view.dart';
+import 'package:news_route/Features/articles/presentation/views/articles_view.dart';
 import 'package:news_route/Features/home/presentation/views/home_view.dart';
 import 'package:news_route/Features/search/presentation/views/search_view.dart';
 import 'package:news_route/Features/setting/presentation/views/setting_view.dart';
@@ -32,7 +32,7 @@ abstract class AppRouters {
       ),
       GoRoute(
         path: categoryDetails,
-        builder: (context, state) => CategoryDetailsView(
+        builder: (context, state) => ArticleDetailsView(
         ),
       ),
       GoRoute(

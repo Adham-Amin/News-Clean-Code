@@ -5,7 +5,7 @@ import 'package:news_route/Core/utils/app_colors.dart';
 import 'package:news_route/Core/utils/app_routes.dart';
 import 'package:news_route/Core/utils/app_styles.dart';
 import 'package:news_route/Core/widgets/custom_scaffold.dart';
-import 'package:news_route/Features/categories/presentation/widgets/category_view_body.dart';
+import 'package:news_route/Features/articles/presentation/widgets/articles_view_body.dart';
 
 class CategoryView extends StatelessWidget {
   const CategoryView({super.key, required this.category});
@@ -39,7 +39,7 @@ class CategoryView extends StatelessWidget {
             ),
           ],
         ),
-        body: CategoryViewBody(category: category,),
+        body: ArticleViewBody(category: category,),
     );
   }
 }

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:news_route/Features/categories/presentation/widgets/article_item.dart';
+import 'package:news_route/Features/articles/presentation/widgets/article_item.dart';
 
 class ArticlesList extends StatelessWidget {
   const ArticlesList({

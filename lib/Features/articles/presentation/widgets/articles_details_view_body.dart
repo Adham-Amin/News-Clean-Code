@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:news_route/Features/categories/presentation/widgets/desc_article.dart';
-import 'package:news_route/Features/categories/presentation/widgets/header_article.dart';
+import 'package:news_route/Features/articles/presentation/widgets/desc_article.dart';
+import 'package:news_route/Features/articles/presentation/widgets/header_article.dart';
 
-class CategoryDetailsViewBody extends StatelessWidget {
-  const CategoryDetailsViewBody({super.key});
+class ArticleDetailsViewBody extends StatelessWidget {
+  const ArticleDetailsViewBody({super.key});
   
   @override
   Widget build(BuildContext context) {

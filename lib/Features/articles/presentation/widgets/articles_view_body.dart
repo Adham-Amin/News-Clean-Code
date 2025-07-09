@@ -1,17 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:news_route/Features/categories/presentation/widgets/articles_list.dart';
-import 'package:news_route/Features/categories/presentation/widgets/sources_list.dart';
+import 'package:news_route/Features/articles/presentation/widgets/articles_list.dart';
+import 'package:news_route/Features/articles/presentation/widgets/sources_list.dart';
 
-class CategoryViewBody extends StatefulWidget {
-  const CategoryViewBody({super.key, required this.category});
+class ArticleViewBody extends StatefulWidget {
+  const ArticleViewBody({super.key, required this.category});
   final String category;
 
   @override
-  State<CategoryViewBody> createState() => _CategoryViewBodyState();
+  State<ArticleViewBody> createState() => _ArticleViewBodyState();
 }
 
-class _CategoryViewBodyState extends State<CategoryViewBody> {
+class _ArticleViewBodyState extends State<ArticleViewBody> {
   @override
 
   @override
