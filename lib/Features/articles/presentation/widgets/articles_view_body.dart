@@ -5,7 +5,6 @@ import 'package:news_route/Core/utils/app_colors.dart';
 import 'package:news_route/Features/articles/presentation/manager/sources_cubit/sources_cubit.dart';
 import 'package:news_route/Features/articles/presentation/widgets/articles_list.dart';
 import 'package:news_route/Features/articles/presentation/widgets/source_item.dart';
-
 class ArticleViewBody extends StatefulWidget {
   const ArticleViewBody({super.key, required this.category});
   final String category;
@@ -17,7 +16,7 @@ class ArticleViewBody extends StatefulWidget {
 class _ArticleViewBodyState extends State<ArticleViewBody>
     with TickerProviderStateMixin {
   int currentIndex = 0;
-  late TabController _tabController;
+  TabController? _tabController;
 
   @override
   void initState() {
@@ -25,23 +24,31 @@ class _ArticleViewBodyState extends State<ArticleViewBody>
     context.read<SourcesCubit>().getSources(category: widget.category);
   }
 
+  void _setupTabController(int length) {
+    _tabController?.dispose();
+    _tabController = TabController(
+      length: length,
+      vsync: this,
+      initialIndex: currentIndex,
+    );
+
+    _tabController!.addListener(() {
+      if (!_tabController!.indexIsChanging) {
+        setState(() {
+          currentIndex = _tabController!.index;
+        });
+      }
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<SourcesCubit, SourcesState>(
       builder: (context, state) {
         if (state is SourcesSuccess) {
-          _tabController = TabController(
-            length: state.sources.length,
-            vsync: this,
-            initialIndex: currentIndex,
-          );
-          _tabController.addListener(() {
-            if (_tabController.indexIsChanging == false) {
-              setState(() {
-                currentIndex = _tabController.index;
-              });
-            }
-          });
+          if (_tabController == null || _tabController!.length != state.sources.length) {
+            _setupTabController(state.sources.length);
+          }
 
           return Column(
             children: [
@@ -52,12 +59,13 @@ class _ArticleViewBodyState extends State<ArticleViewBody>
                 isScrollable: true,
                 dividerColor: Colors.transparent,
                 indicatorColor: Colors.transparent,
-                tabs: state.sources
-                    .map((e) => SourceItem(
-                          isSelected: currentIndex == state.sources.indexOf(e),
-                          source: e.sourceName,
-                        ))
-                    .toList(),
+                tabs: List.generate(
+                  state.sources.length,
+                  (index) => SourceItem(
+                    isSelected: currentIndex == index,
+                    source: state.sources[index].sourceName,
+                  ),
+                ),
               ),
               SizedBox(height: 8.h),
               Expanded(
@@ -83,7 +91,7 @@ class _ArticleViewBodyState extends State<ArticleViewBody>
 
   @override
   void dispose() {
-    _tabController.dispose();
+    _tabController?.dispose();
     super.dispose();
   }
 }
