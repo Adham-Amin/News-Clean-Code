@@ -26,6 +26,17 @@ class HomeView extends StatelessWidget {
             bottom: Radius.circular(24.sp),
           ),
         ),
+        actions: [
+            IconButton(
+              onPressed: () {
+                GoRouter.of(context).push(AppRouters.search);
+              },
+              icon: const Icon(
+                Icons.search,
+                color: Colors.black,
+              ),
+            ),
+          ],
       ),
       body: const HomeViewBody(),
       drawer: CustomDrawer(

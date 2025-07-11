@@ -2,10 +2,8 @@ import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:go_router/go_router.dart';
 import 'package:news_route/Core/services/api_service.dart';
 import 'package:news_route/Core/utils/app_colors.dart';
-import 'package:news_route/Core/utils/app_routes.dart';
 import 'package:news_route/Core/utils/app_styles.dart';
 import 'package:news_route/Core/widgets/custom_scaffold.dart';
 import 'package:news_route/Features/articles/data/data_sources/local_articles_data_source.dart';
@@ -51,17 +49,6 @@ class CategoryView extends StatelessWidget {
               bottom: Radius.circular(24.sp),
             ),
           ),
-          actions: [
-            IconButton(
-              onPressed: () {
-                GoRouter.of(context).push(AppRouters.search);
-              },
-              icon: const Icon(
-                Icons.search,
-                color: Colors.black,
-              ),
-            ),
-          ],
         ),
         body: ArticleViewBody(
           category: category,
