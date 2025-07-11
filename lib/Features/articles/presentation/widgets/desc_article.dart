@@ -1,10 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:news_route/Core/functions/launch_link.dart';
 import 'package:news_route/Core/utils/app_colors.dart';
 import 'package:news_route/Core/utils/app_styles.dart';
 
 class DescArticle extends StatelessWidget {
-  const DescArticle({super.key});
+  const DescArticle({super.key, required this.description, required this.url});
+
+  final String description; 
+  final String url; 
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -18,7 +23,7 @@ class DescArticle extends StatelessWidget {
       child: Column(
         children: [
           Text(
-            'article.description',
+            description,
             style: AppStyles.textLight13,
           ),
           SizedBox(
@@ -26,7 +31,7 @@ class DescArticle extends StatelessWidget {
           ),
           InkWell(
             onTap: () {
-              // launchUrl(Uri.parse(article.url ?? ''));
+              linkLauncher(context, url);
             },
             child: Row(
               mainAxisAlignment: MainAxisAlignment.end,

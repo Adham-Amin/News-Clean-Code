@@ -10,14 +10,24 @@ abstract class LocalArticlesDataSource {
 
 class LocalArticlesDataSourceImpl implements LocalArticlesDataSource {
   @override
-  Future<List<ArticleEntity>> getArticles({required String sourceId}) {
+  Future<List<ArticleEntity>> getArticles({required String sourceId}) async {
     var box = Hive.box(kArticlesBox);
-    return box.get(sourceId);
+    var data = box.get(sourceId);
+    if (data != null && data is List<ArticleEntity>) {
+      return data;
+    } else {
+      return [];
+    }
   }
 
   @override
-  Future<List<SourceEntity>> getSources({required String category}) {
+  Future<List<SourceEntity>> getSources({required String category}) async {
     var box = Hive.box(kArticlesBox);
-    return box.get(category);
+    var data = box.get(category);
+    if (data != null && data is List<SourceEntity>) {
+      return data;
+    } else {
+      return [];
+    }
   }
 }

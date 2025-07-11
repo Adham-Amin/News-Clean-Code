@@ -10,6 +10,7 @@ class ArticlesCubit extends Cubit<ArticlesState> {
   final ArticleRepo articleRepo;
 
   Future<void> getArticles({required String sourceId}) async {
+    emit(ArticlesLoading());
     var result = await articleRepo.getArticles(sourceId: sourceId);
     result.fold(
       (faliure) {
