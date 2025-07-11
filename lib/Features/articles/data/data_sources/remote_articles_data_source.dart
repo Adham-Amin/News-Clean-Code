@@ -1,8 +1,10 @@
+import 'package:hive_flutter/hive_flutter.dart';
 import 'package:news_route/Core/services/api_service.dart';
 import 'package:news_route/Features/articles/data/models/article_model/article_model.dart';
 import 'package:news_route/Features/articles/data/models/source_model/source_model.dart';
 import 'package:news_route/Features/articles/domain/entities/article_entity.dart';
 import 'package:news_route/Features/articles/domain/entities/source_entity.dart';
+import 'package:news_route/constants.dart';
 
 abstract class RemoteArticlesDataSource {
   Future<List<SourceEntity>> getSources({required String category});
@@ -23,6 +25,8 @@ class RemoteArticlesDataSourceImpl implements RemoteArticlesDataSource {
     for (var article in response['articles']) {
       articlesList.add(ArticleModel.fromJson(article));
     }
+    var box = Hive.box(kArticlesBox);
+    box.put(sourceId, articlesList);
     return articlesList;
   }
 
@@ -35,6 +39,8 @@ class RemoteArticlesDataSourceImpl implements RemoteArticlesDataSource {
     for (var source in response['sources']) {
       sourcesList.add(SourceModel.fromJson(source));
     }
+    var box = Hive.box(kArticlesBox);
+    box.put(category, sourcesList);
     return sourcesList;
   }
 }
