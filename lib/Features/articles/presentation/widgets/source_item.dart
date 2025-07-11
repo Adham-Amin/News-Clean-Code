@@ -5,19 +5,15 @@ import 'package:news_route/Core/utils/app_styles.dart';
 class SourceItem extends StatelessWidget {
   const SourceItem({
     super.key,
-    required this.isSelected,
-    required this.onTap, required this.source,
+    required this.isSelected, required this.source,
   });
 
   final String source;
   final bool isSelected;
-  final VoidCallback onTap;
 
   @override
   Widget build(BuildContext context) {
-    return InkWell(
-      onTap: onTap,
-      child: Container(
+    return Container(
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(24),
           border: Border.all(color: AppColors.green, width: 2),
@@ -31,7 +27,6 @@ class SourceItem extends StatelessWidget {
             color: isSelected ? AppColors.white : AppColors.green,
           ),
         ),
-      ),
     );
   }
 }

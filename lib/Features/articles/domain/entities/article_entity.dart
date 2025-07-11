@@ -1,18 +1,21 @@
-class ArticleEntity {
-  final String? title;
-  final String? description;
-  final String? url;
-  final String? urlToImage;
-  final String? publishedAt;
-  final String? content;
-  final String? source;
+import 'package:news_route/Features/articles/domain/entities/source_entity.dart';
 
-  const ArticleEntity(
-      {required this.title,
-      required this.description,
-      required this.url,
-      required this.urlToImage,
-      required this.publishedAt,
-      required this.content,
-      required this.source});
+class ArticleEntity {
+  final String titleArticle;
+  final String descriptionArticle;
+  final String urlArticle;
+  final String urlToImageArticle;
+  final String publishedAtArticle;
+  final String contentArticle;
+  final SourceEntity sourceModel;
+
+  const ArticleEntity({
+    required this.sourceModel,
+    required this.titleArticle,
+    required this.descriptionArticle,
+    required this.urlArticle,
+    required this.urlToImageArticle,
+    required this.publishedAtArticle,
+    required this.contentArticle,
+  });
 }

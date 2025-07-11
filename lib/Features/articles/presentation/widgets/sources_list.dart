@@ -23,7 +23,6 @@ class _SourcesListState extends State<SourcesList> {
           child: SourceItem(
             source: 'widget.articles[index].source!.name!',
             isSelected: index == currentIndex,
-            onTap: () {},
           ),
         ),
       ),
