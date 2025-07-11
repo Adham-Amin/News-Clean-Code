@@ -39,9 +39,13 @@ dependencies:
   go_router: ^14.8.1
   google_fonts: ^6.2.1
   url_launcher: ^6.3.1
+  hive_flutter:
+  path_provider:
 
 dev_dependencies:
   flutter_lints: ^5.0.0
+  hive_generator:
+  build_runner:
   flutter_test:
     sdk: flutter
 
